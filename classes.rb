@@ -8,7 +8,7 @@ class Menu
     end
     
     def display_menu
-        @options.each_with_index do | option |
+        @options.each do | option |
         return option
         end
     end
