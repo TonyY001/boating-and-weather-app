@@ -1,5 +1,5 @@
 def weather
-    weather_results = CSV.read('weather.csv', headers: true)
+    weather_results = CSV.read('weather_data.csv', headers: true)
     weather_results.each do | result |
         puts "The weather for the #{result['date']} of #{result['month']}, #{result['year']}: 
     The temperature is #{result['temperature']} degrees celsius
