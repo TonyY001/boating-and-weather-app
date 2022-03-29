@@ -37,7 +37,7 @@ At #{result['time4']} a height of #{result['height4']} metres".colorize(:blue)
 end
 
 def location_message
-    puts "Taking into consideration the current wind direction, the best place to anchor for the night is "
+    puts "Taking into consideration the current wind direction, the best place to is "
 end
 
 def anchor_message
