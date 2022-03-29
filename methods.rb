@@ -2,7 +2,7 @@ require'csv'
 require 'colorize'
 
 def weather
-    weather_results = CSV.read('csvfiles/weather_data.csv', headers: true)
+    weather_results = CSV.read('data_files/weather_data.csv', headers: true)
     weather_results.each do | result |
         puts "The weather for the #{result['day']} of #{result['month']}, #{result['year']}: 
     The temperature is #{result['temperature']} degrees celsius
@@ -15,7 +15,7 @@ def weather
 end
 
 def today_tide
-    tides = CSV.read('csvfiles/tide_data.csv')
+    tides = CSV.read('data_files/tide_data.csv')
     todays_tide = tides[1][3..10]
         puts "The tides for today are:".colorize(:red)
         puts "At #{todays_tide[0]} a height of #{todays_tide[1]} metres
@@ -26,7 +26,7 @@ end
 
 def week_tide
     puts "The tides for the following week are:".colorize(:red)
-    tides = CSV.read('csvfiles/tide_data.csv', headers: true)
+    tides = CSV.read('data_files/tide_data.csv', headers: true)
     tides.each do |result|
         puts "#{result['month']} #{result['day']}, #{result['year']}:".colorize(:yellow) 
         puts "At #{result['time1']} a height of #{result['height1']} metres

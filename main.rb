@@ -1,11 +1,14 @@
 require 'csv'
+require 'json'
 require 'colorize'
 require_relative 'classes.rb'
 require_relative 'methods.rb'
 
+#Variable containing JSON data for anchorages
+location = JSON.load_file('data_files/anchorage_data.json', symbolize_names: true)
 #Variable containing list of main menu items in main menu list
-menu_options = CSV.read('csvfiles/menu_list.csv') 
-
+menu_options = CSV.read('data_files/menu_list.csv') 
+pp location
 #Instance of Menu Class: main menu
 main_menu = Menu.new("main", menu_options[0..5]) # main_menu = Menu.new("main", menu_options[0..5])
 

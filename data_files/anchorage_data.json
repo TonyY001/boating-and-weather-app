@@ -1,0 +1,35 @@
+[
+    { 
+    "island": "Hook Island", "anchorage": [ "Butterfly Bay", "Saba Bay", "Nara Inlet", "Stonehaven Anchorage" ],
+    "protected direction": [ "South", "West", "North", "East"], "depth": [ 13, 6, 5, 12 ],
+    "latitude": [ "20°04.260'S", "20°06.586'S","20°08.891'S", "20°06.065'S"],
+    "longitude": [ "148°55.769'E", "148°56.817'E", "148°54.389'E","148°54.337'E" ] 
+    },
+
+    { 
+    "island": "Whitsunday Island", "anchorage": [ "Hook Passage", "South Whitehaven", "Chance Bay", "Cid Harbour"],
+    "protected direction": ["South", "West", "North", "East"], "depth": [ 8, 10, 11, 5  ], 
+    "latitude": [ "20°09.699'S", "20°17.402'S", "20°18.414'S", "20°15.149'S" ], 
+    "longitude": [ "148°57.365'E", "149°03.223'E", "149°02.392'E", "148°56.709'E" ] 
+    },
+
+     { 
+    "island": "Long Island", "anchorage": [ "Happy Bay", "Palm Bay", "Paradise Bay", "Pandanus Bay" ], 
+     "protected direction": [ "South", "West", "North", "East"], "depth": [ 4, 5, 5, 10], 
+     "latitude": [ "20°19.845'S", "20°20.595'S", "20°23.422'S", "20°20.702'S"], 
+     "longitude": [ "148°50.766'E", "148°50.844'E", "148°51.543'E","148°51.203'E"] 
+     },
+
+    { "island": "South Molle Island", "anchorage": [ "Bauer Bay", "Camp Bay", "Sandy Bay", "Turtle Bay" ], 
+    "protected direction": [ "South", "West", "North", "East"], "depth": [ 5, 8, 7, 5 ], 
+    "latitude": [ "20°15.480'S", "20°16.061'S", "20°16.091'S", "20°16.015'S" ], 
+    "longitude": [ "148°50.349'E", "148°49.627'E", "148°49.658'E", "148°50.915'E" ] 
+    },
+
+    { 
+    "island": "Hamilton Island", "anchorage": [ "Catseye Bay", " Perseverance Bay", "Driftwood Bay", "Hamilton Island Marina"], 
+    "protected direction": [ "South", "West", "North", "East"], "depth": [ 13, 10, 7 ], 
+    "latitude": [ "20°20.510'S", "20°21.306'S", "20°21.846'S", "20°20.834'S" ], 
+    "longitude": [ "148°57.682'E", "148°58.879'E", "148°57.632'E", "148°57.007'E" ] 
+    }
+]
