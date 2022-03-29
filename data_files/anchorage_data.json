@@ -27,8 +27,8 @@
     },
 
     { 
-    "island": "Hamilton Island", "anchorage": [ "Catseye Bay", " Perseverance Bay", "Driftwood Bay", "Hamilton Island Marina"], 
-    "protected direction": [ "South", "West", "North", "East"], "depth": [ 13, 10, 7 ], 
+    "island": "Hamilton Island", "anchorage": [ "Catseye Bay", "Perseverance Bay", "Driftwood Bay", "Hamilton Island Marina"], 
+    "protected direction": [ "South", "West", "North", "East"], "depth": [ 13, 10, 7, 2 ], 
     "latitude": [ "20°20.510'S", "20°21.306'S", "20°21.846'S", "20°20.834'S" ], 
     "longitude": [ "148°57.682'E", "148°58.879'E", "148°57.632'E", "148°57.007'E" ] 
     }

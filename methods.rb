@@ -1,4 +1,5 @@
 require'csv'
+require 'json'
 require 'colorize'
 
 def weather
@@ -37,15 +38,504 @@ At #{result['time4']} a height of #{result['height4']} metres".colorize(:blue)
 end
 
 def location_message
-    puts "Taking into consideration the current wind direction, the best place to is "
+    puts "Taking into consideration the current wind direction, the best location to anchor is:"
 end
 
 def anchor_message
-    puts "To be on the safe side, the recommended length of anchor chain in metres to release is "
+    puts "To be safe, the minimum recommended length of anchor chain in metres to release is:"
 end
 
 def long_lat
-    puts "The latitude and longitude of this location is: "
+    puts "The latitude and longitude of this location is:"
+end
+
+def calculate_anchorage
+
+    if island == "hook island" && wind_direction == "south" && wind_speed <= 10 
+        print location_message 
+        puts "#{location[0][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][0]} and #{location[0][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][0] * 3}".colorize(:light_blue)
+
+
+    elsif island == "hook island" && wind_direction == "south" && wind_speed <= 20
+        print location_message 
+        puts "#{location[0][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][0]} and #{location[0][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][0] * 4}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "south" && wind_speed > 20
+        print location_message 
+        puts "#{location[0][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][0]} and #{location[0][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][0] * 5}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "west" && wind_speed <= 10
+        print location_message 
+        puts "#{location[0][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][1]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][1] * 3}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "west" && wind_speed <= 20
+        print location_message 
+        puts "#{location[0][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][1]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][1] * 4}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "west" && wind_speed > 20
+        print location_message
+        puts "#{location[0][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][1]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][1] * 5}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "north" && wind_speed <= 10
+        print location_message
+        puts "#{location[0][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][2]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][2] * 3}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "north" && wind_speed <= 20
+        print location_message
+        puts "#{location[0][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][2]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][2] * 4}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "north" && wind_speed > 20
+        print location_message
+        puts "#{location[0][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][2]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][2] * 5}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "east" && wind_speed <= 10
+        print location_message
+        puts "#{location[0][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][3]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][3] * 3}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "east" && wind_speed <= 20
+        print location_message
+        puts "#{location[0][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][3]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][3] * 4}".colorize(:light_blue)
+
+    elsif island == "hook island" && wind_direction == "east" && wind_speed > 20
+        print location_message
+        puts "#{location[0][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[0][:latitude][3]} and #{location[0][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[0][:depth][3] * 5}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "south" && wind_speed <= 10
+        print location_message
+        puts "#{location[1][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][0]} and #{location[1][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][0] * 3}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "south" && wind_speed <= 20
+        print location_message
+        puts "#{location[1][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][0]} and #{location[1][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][0] * 4}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "south" && wind_speed > 20
+        print location_message
+        puts "#{location[1][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][0]} and #{location[1][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][0] * 5}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "west" && wind_speed <= 10
+        print location_message
+        puts "#{location[1][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][1]} and #{location[1][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][1] * 3}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "west" && wind_speed <= 20
+        print location_message
+        puts "#{location[1][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][1]} and #{location[1][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][1] * 4}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "west" && wind_speed > 20
+        print location_message
+        puts "#{location[1][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][1]} and #{location[1][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][1] * 5}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "north" && wind_speed <= 10
+        print location_message
+        puts "#{location[1][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][2]} and #{location[1][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][2] * 3}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "north" && wind_speed <= 20
+        print location_message
+        puts "#{location[1][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][2]} and #{location[1][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][2] * 4}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "north" && wind_speed > 20
+        print location_message
+        puts "#{location[1][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][2]} and #{location[1][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][2] * 5}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "east" && wind_speed <= 10
+        print location_message
+        puts "#{location[1][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][3]} and #{location[1][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][3] * 3}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "east" && wind_speed <= 20
+        print location_message
+        puts "#{location[1][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][3]} and #{location[1][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][3] * 4}".colorize(:light_blue)
+
+    elsif island == "whitsunday island" && wind_direction == "east" && wind_speed > 20
+        print location_message
+        puts "#{location[1][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[1][:latitude][3]} and #{location[1][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[1][:depth][3] * 5}".colorize(:light_blue)
+        
+
+    elsif island == "long island" && wind_direction == "south" && wind_speed <= 10
+        print location_message
+        puts "#{location[2][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][0]} and #{location[2][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][0] * 3}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "south" && wind_speed <= 20
+        print location_message
+        puts "#{location[2][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][0]} and #{location[2][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][0] * 4}".colorize(:light_blue)
+        
+    elsif island == "long island" && wind_direction == "south" && wind_speed > 20
+        print location_message
+        puts "#{location[2][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][0]} and #{location[2][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][0] * 5}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "west" && wind_speed <= 10
+        print location_message
+        puts "#{location[2][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][1]} and #{location[2][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][1] * 3}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "west" && wind_speed <= 20
+        print location_message
+        puts "#{location[2][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][1]} and #{location[2][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][1] * 4}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "west" && wind_speed > 20
+        print location_message
+        puts "#{location[2][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][1]} and #{location[2][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][1] * 5}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "north" && wind_speed <= 10
+        print location_message
+        puts "#{location[2][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][2]} and #{location[2][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][2] * 3}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "north" && wind_speed <= 20
+        print location_message
+        puts "#{location[2][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][2]} and #{location[2][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][2] * 4}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "north" && wind_speed > 20
+        print location_message
+        puts "#{location[2][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][2]} and #{location[2][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][2] * 5}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "east" && wind_speed <= 10
+        print location_message
+        puts "#{location[2][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][3]} and #{location[2][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][3] * 3}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "east" && wind_speed <= 20
+        print location_message
+        puts "#{location[2][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][3]} and #{location[2][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][3] * 4}".colorize(:light_blue)
+
+    elsif island == "long island" && wind_direction == "east" && wind_speed > 20
+        print location_message
+        puts "#{location[2][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[2][:latitude][3]} and #{location[2][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[2][:depth][3] * 5}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "south" && wind_speed <= 10
+        print location_message
+        puts "#{location[3][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][0]} and #{location[3][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][0] * 3}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "south" && wind_speed <= 20
+        print location_message
+        puts "#{location[3][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][0]} and #{location[3][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][0] * 4}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "south" && wind_speed > 20
+        print location_message
+        puts "#{location[3][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][0]} and #{location[3][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][0] * 5}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "west" && wind_speed <= 10
+        print location_message
+        puts "#{location[3][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][1]} and #{location[3][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][1] * 3}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "west" && wind_speed <= 20
+        print location_message
+        puts "#{location[3][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][1]} and #{location[3][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][1] * 4}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "west" && wind_speed > 20
+        print location_message
+        puts "#{location[3][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][1]} and #{location[3][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][1] * 5}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "north" && wind_speed <= 10
+        print location_message
+        puts "#{location[3][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][2]} and #{location[3][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][2] * 3}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "north" && wind_speed <= 20
+        print location_message
+        puts "#{location[3][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][2]} and #{location[3][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][2] * 4}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "north" && wind_speed > 20
+        print location_message
+        puts "#{location[3][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][2]} and #{location[3][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][2] * 5}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "east" && wind_speed <= 10
+        print location_message
+        puts "#{location[3][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][3]} and #{location[3][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][3] * 3}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "east" && wind_speed <= 20
+        print location_message
+        puts "#{location[3][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][3]} and #{location[3][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][3] * 4}".colorize(:light_blue)
+
+    elsif island == "south molle island" && wind_direction == "east" && wind_speed > 20
+        print location_message
+        puts "#{location[3][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[3][:latitude][3]} and #{location[3][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[3][:depth][3] * 5}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "south" && wind_speed <= 10
+        print location_message
+        puts "#{location[4][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][0]} and #{location[4][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][0] * 3}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "south" && wind_speed <= 20
+        print location_message
+        puts "#{location[4][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][0]} and #{location[4][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][0] * 4}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "south" && wind_speed > 20
+        print location_message
+        puts "#{location[4][:anchorage][0]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][0]} and #{location[4][:longitude][0]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][0] * 5}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "west" && wind_speed <= 10
+        print location_message
+        puts "#{location[4][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][1]} and #{location[4][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][1] * 3}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "west" && wind_speed <= 20
+        print location_message
+        puts "#{location[4][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][1]} and #{location[4][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][1] * 4}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "west" && wind_speed > 20
+        print location_message
+        puts "#{location[4][:anchorage][1]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][1]} and #{location[4][:longitude][1]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][1] * 5}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "north" && wind_speed <= 10
+        print location_message
+        puts "#{location[4][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][2]} and #{location[4][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][2] * 3}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "north" && wind_speed <= 20
+        print location_message
+        puts "#{location[4][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][2]} and #{location[4][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][2] * 4}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "north" && wind_speed > 20
+        print location_message
+        puts "#{location[4][:anchorage][2]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][2]} and #{location[4][:longitude][2]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][2] * 5}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "east" && wind_speed <= 10
+        print location_message
+        puts "#{location[4][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][3]} and #{location[4][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][3] * 3}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "east" && wind_speed <= 20
+        print location_message
+        puts "#{location[4][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][3]} and #{location[4][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][3] * 4}".colorize(:light_blue)
+
+    elsif island == "hamilton island" && wind_direction == "east" && wind_speed > 20
+        print location_message
+        puts "#{location[4][:anchorage][3]}".colorize(:light_blue)
+        print long_lat
+        puts "#{location[4][:latitude][3]} and #{location[4][:longitude][3]}".colorize(:light_blue)
+        print anchor_message 
+        puts "#{location[4][:depth][3] * 5}".colorize(:light_blue)
+
+    else
+        puts "Please enter a valid island" 
+    end
 end
 
 
