@@ -4,8 +4,8 @@ require_relative 'classes.rb'
 require_relative 'methods.rb'
 
 #Variable containing list of main menu items in main menu list
-menu_options = CSV.read('menu_list.csv') 
-p menu_options[1][0..1]
+menu_options = CSV.read('csvfiles/menu_list.csv') 
+
 #Instance of Menu Class: main menu
 main_menu = Menu.new("main", menu_options[0..5]) # main_menu = Menu.new("main", menu_options[0..5])
 
