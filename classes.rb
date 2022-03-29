@@ -14,6 +14,6 @@ class Menu
     end
 
     def message
-        return "Please enter an option from the list:"
+        return "Please enter an option from the list:".colorize(:blue)
     end
 end

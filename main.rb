@@ -1,32 +1,41 @@
 require 'csv'
+require 'colorize'
 require_relative 'classes.rb'
 require_relative 'methods.rb'
 
 #Variable containing list of main menu items in main menu list
-main_menu_options = CSV.read('main_menu_list.csv') 
-#Instance of Menu class: main menu
-main_menu = Menu.new("main", main_menu_options[0..5])
+menu_options = CSV.read('menu_list.csv') 
+p menu_options[1][0..1]
+#Instance of Menu Class: main menu
+main_menu = Menu.new("main", menu_options[0..5]) # main_menu = Menu.new("main", menu_options[0..5])
+
+#Instance of Menu Class: tide menu
+tide_menu = Menu.new("tide", menu_options[1][0..1])
+
+#Prints enter a selection message below main menu
+puts main_menu.message
 
 #Prints main menu to screen
 puts main_menu.display_menu
-#Prints enter a selection message below main menu
-puts main_menu.message
+
 #Saves user selection into variable: user selection
 user_selection = gets.chomp.downcase
-#Case statement to process user input
+
+#Case statement to process user selection
 case user_selection
-    when main_menu_options[0][0].downcase
+    when menu_options[0][0].downcase
         weather
-    when main_menu_options[0][1].downcase
-        puts "tide"
-    when main_menu_options[0][2].downcase
+    when menu_options[0][1].downcase
+        puts tide_menu.message
+        puts tide_menu.display_menu
+    when menu_options[0][2].downcase
         puts "anchorage"
-    when main_menu_options[0][3].downcase
+    when menu_options[0][3].downcase
         puts "update"
-    when main_menu_options[0][4].downcase
+    when menu_options[0][4].downcase
         puts "help"
-    when main_menu_options[0][5].downcase
-        user_wants_to_continue = false
+    when menu_options[0][5].downcase
+        puts "exit"
     else
         puts "Please enter a valid selection"
     end
