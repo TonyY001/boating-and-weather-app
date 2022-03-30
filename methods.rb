@@ -543,7 +543,6 @@ def calculate_anchorage
 
     else
         puts "Please enter a valid island".colorize(:yellow)
-        invalid_island = true
     end
 end
 
