@@ -56,6 +56,7 @@ def calculate_anchorage
     wind_speed = wind_speed.to_i 
     wind_direction = weather_results_anchorage[1][5]
     wind_direction = wind_direction.chomp.downcase
+    
     island = gets.chomp.downcase
 
     if island == "hook island" && wind_direction == "south" && wind_speed <= 10 
@@ -541,8 +542,10 @@ def calculate_anchorage
         puts "#{location[4][:depth][3] * 5}".colorize(:light_blue)
 
     else
-        puts "Please enter a valid island" 
+        puts "Please enter a valid island".colorize(:yellow)
+        invalid_island = true
     end
 end
+
 
 

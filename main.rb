@@ -45,33 +45,39 @@ tide = TideMenu.new("tide", tide_options)
 #Instance of AnchorageMenu, subclass of Menu Class
 anchorage = AnchorageMenu.new("anchorage", anchorage_options)
 
-#Prints enter a selection message below main menu
-puts main_menu.message
+#While loop to keep program running until user selects exit
+exit = false
+while exit == false
 
-#Prints main menu to screen
-puts main_menu.display_menu
+    #Prints enter a selection message 
+    puts main_menu.message
 
-#Saves user selection into variable: user selection
-user_selection = gets.chomp.downcase
+    #Prints main menu to screen
+    puts main_menu.display_menu
 
-#Case statement to process user selection
-case user_selection
-    when menu_options[0][0].downcase
-        weather
-    when menu_options[0][1].downcase
-        puts tide.message
-        puts tide.display_menu
-        puts tide.tide_user_input
-    when menu_options[0][2].downcase
-        puts anchorage.message
-        puts anchorage.display_menu
-        calculate_anchorage
-    when menu_options[0][3].downcase
-        puts "update"
-    when menu_options[0][4].downcase
-        puts "help"
-    when menu_options[0][5].downcase
-        puts "exit"
-    else
-        puts "Please enter a valid selection"
+    #Saves user selection into variable: user selection
+    user_selection = gets.chomp.downcase
+
+    #Case statement to process user selection
+    case user_selection
+        when menu_options[0][0].downcase
+            weather
+        when menu_options[0][1].downcase
+            puts tide.message
+            puts tide.display_menu
+            puts tide.tide_user_input
+        when menu_options[0][2].downcase
+            puts anchorage.message
+            puts anchorage.display_menu
+            calculate_anchorage
+        when menu_options[0][3].downcase
+            puts "update"
+        when menu_options[0][4].downcase
+            puts "help"
+        when menu_options[0][5].downcase
+            exit = true
+        else
+            puts "Please enter a valid selection"
     end
+
+end
