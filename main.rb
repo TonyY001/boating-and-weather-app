@@ -3,6 +3,7 @@ require 'json'
 require 'colorize'
 require 'tty-font'
 require 'tty-prompt'
+require 'io/console'
 require_relative 'classes.rb'
 require_relative 'methods.rb'
 
@@ -52,20 +53,23 @@ while exit == false
     case user_selection
         when menu_options[0][0].downcase
             weather
+            continue
         when menu_options[0][1].downcase
             puts tide.message
             puts tide.display_menu
             tide.tide_user_input
+            continue
         when menu_options[0][2].downcase
             puts anchorage.message
             puts anchorage.display_menu
             calculate_anchorage
+            continue
         when menu_options[0][3].downcase
             puts "update"
         when menu_options[0][4].downcase
             exit = true
         else
-            puts "Please enter a valid selection".colorize(:yellow)
+            puts "Please enter a valid selection !".colorize(:yellow)
     end
 
 end

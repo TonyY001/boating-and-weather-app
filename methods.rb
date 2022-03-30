@@ -15,6 +15,12 @@ def weather
     end
 end
 
+def continue                                                                                                              
+  print "Press Any Key To Continue".colorize(:light_red)                                                                                                    
+  STDIN.getch                                                                                                              
+  print "\r"                                                                                                            
+end   
+
 def location_message
     puts "Taking into consideration the current wind direction, the best location to anchor is:".colorize(:light_green)
 end
