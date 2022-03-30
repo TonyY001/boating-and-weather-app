@@ -5,13 +5,13 @@ require 'colorize'
 def weather
     weather_results = CSV.read('data_files/weather_data.csv', headers: true)
     weather_results.each do | result |
-        puts "The weather for the #{result['day']} of #{result['month']}, #{result['year']}: 
-    The temperature is #{result['temperature']} degrees celsius
+        puts "The weather for the #{result['day']} of #{result['month']}, #{result['year']}:".colorize(:light_green) 
+        puts "The temperature is #{result['temperature']} degrees celsius
     The wind strength is #{result['wind strength']} knots
     The wind direction is #{result['wind direction']}
     The probability of rain is #{result['rain probability']}%
     The moon is #{result['moon']}% full
-    The swell height is #{result['swell']} metres"
+    The swell height is #{result['swell']} metres".colorize(:light_blue)
     end
 end
 
@@ -38,18 +38,25 @@ At #{result['time4']} a height of #{result['height4']} metres".colorize(:blue)
 end
 
 def location_message
-    puts "Taking into consideration the current wind direction, the best location to anchor is:"
+    puts "Taking into consideration the current wind direction, the best location to anchor is:".colorize(:light_green)
 end
 
 def anchor_message
-    puts "To be safe, the minimum recommended length of anchor chain in metres to release is:"
+    puts "To be safe, the minimum recommended length of anchor chain in metres to release is:".colorize(:light_green)
 end
 
 def long_lat
-    puts "The latitude and longitude of this location is:"
+    puts "The latitude and longitude of this location is:".colorize(:light_green)
 end
 
 def calculate_anchorage
+    location = JSON.load_file('data_files/anchorage_data.json', symbolize_names: true)
+    weather_results_anchorage = CSV.read('data_files/weather_data.csv')
+    wind_speed = weather_results_anchorage[1][4]
+    wind_speed = wind_speed.to_i 
+    wind_direction = weather_results_anchorage[1][5]
+    wind_direction = wind_direction.chomp.downcase
+    island = gets.chomp.downcase
 
     if island == "hook island" && wind_direction == "south" && wind_speed <= 10 
         print location_message 
