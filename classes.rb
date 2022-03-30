@@ -50,9 +50,9 @@ At #{result['time4']} a height of #{result['height4']} metres".colorize(:blue)
             user_tide_selection = gets.chomp.downcase
                 case user_tide_selection
                 when "todays tide"
-                    puts today_tide
+                    today_tide
                 when "weekly tides"
-                    puts week_tide
+                    week_tide
                 else
                     puts "Please enter a valid selection !"
             end

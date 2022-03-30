@@ -55,7 +55,7 @@ while exit == false
         when menu_options[0][1].downcase
             puts tide.message
             puts tide.display_menu
-            puts tide.tide_user_input
+            tide.tide_user_input
         when menu_options[0][2].downcase
             puts anchorage.message
             puts anchorage.display_menu
