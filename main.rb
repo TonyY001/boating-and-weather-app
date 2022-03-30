@@ -17,9 +17,6 @@ puts font_color.bright_blue(font.write("the Whitsunday"))
 puts font_color.bright_blue(font.write("Weather and"))
 puts font_color.bright_blue(font.write("Boating Guide"))
 
-#Variable containing JSON data for anchorages
-location = JSON.load_file('data_files/anchorage_data.json', symbolize_names: true)
-
 #Variable containing list of main menu items in main menu list
 menu_options = CSV.read('data_files/menu_list.csv')
 
@@ -28,13 +25,6 @@ tide_options = CSV.read('data_files/tide_menu.csv')
 
 #Variable containing list of anchorage menu items
 anchorage_options = CSV.read('data_files/anchorage_menu.csv')
-
-#Variable containing list of current weather
-weather_results_anchorage = CSV.read('data_files/weather_data.csv')
-
-#Variables containing data for anchorage calculation
-wind_strength = weather_results_anchorage[1][4] 
-wind_speed = weather_results_anchorage[1][5] 
 
 #Instance of Menu Class: main menu
 main_menu = Menu.new("main", menu_options) 
@@ -48,7 +38,7 @@ anchorage = AnchorageMenu.new("anchorage", anchorage_options)
 #While loop to keep program running until user selects exit
 exit = false
 while exit == false
-
+    
     #Prints enter a selection message 
     puts main_menu.message
 
@@ -73,11 +63,9 @@ while exit == false
         when menu_options[0][3].downcase
             puts "update"
         when menu_options[0][4].downcase
-            puts "help"
-        when menu_options[0][5].downcase
             exit = true
         else
-            puts "Please enter a valid selection"
+            puts "Please enter a valid selection".colorize(:yellow)
     end
 
 end
