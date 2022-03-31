@@ -41,7 +41,7 @@ exit = false
 while exit == false
     
     #Prints enter a selection message 
-    puts main_menu.message
+    main_menu.message
 
     #Prints main menu to screen
     puts main_menu.display_menu
@@ -55,14 +55,14 @@ while exit == false
             weather
             continue
         when menu_options[0][1].downcase
-            puts tide.message
+            tide.message
             puts tide.display_menu
             tide.tide_user_input
             continue
         when menu_options[0][2].downcase
-            puts anchorage.message
+            anchorage.message
             puts anchorage.display_menu
-            calculate_anchorage
+            anchorage.calculate_anchorage
             continue
         when menu_options[0][3].downcase
             puts "update"
