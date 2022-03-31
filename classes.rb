@@ -134,9 +134,12 @@ class AnchorageMenu < Menu
             end
         end
 
-        puts "Taking into consideration the current weather conditions, the best place to anchor is #{anchorage}"
-        puts "To be safe, the minimum recommended length of anchor chain to release is #{anchor_length(wind_speed, depth)} metres"
-        puts "The latitude of this location is #{latitude}, and the longitude is #{longitude}"
+        puts "Taking into consideration the current weather conditions, the best place to anchor is:".colorize(:light_green)
+        puts "#{anchorage}".colorize(:light_blue)
+        puts "To be safe, the minimum recommended length of anchor chain to release is:".colorize(:light_green)
+        puts "#{anchor_length(wind_speed, depth)} metres".colorize(:light_blue)
+        puts "The GPS coordinates of this location are:".colorize(:light_green)
+        puts "Latitude #{latitude}, and longitude #{longitude}".colorize(:light_blue)
 
     end
 end
