@@ -67,6 +67,7 @@ while exit == false
         when menu_options[0][3].downcase
             puts "update"
         when menu_options[0][4].downcase
+            exit_message
             exit = true
         else
             puts "Please enter a valid selection !".colorize(:yellow)

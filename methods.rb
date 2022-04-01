@@ -19,7 +19,11 @@ def continue
   print "Press Any Key To Continue".colorize(:light_red)                                                                                                    
   STDIN.getch                                                                                                              
   print "\r"                                                                                                            
-end   
+end  
+
+def exit_message
+  puts "Thankyou for choosing the Whitsunday Weather and Boating Guide! Have fun out on the water!!".colorize(:yellow)
+end
 
 
 # def anchor_length(wind_speed,depth)
