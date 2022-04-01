@@ -27,6 +27,9 @@ tide_options = CSV.read('data_files/tide_menu.csv')
 #Variable containing list of anchorage menu items
 anchorage_options = CSV.read('data_files/anchorage_menu.csv')
 
+#Variable containing list of update menu items
+update_options = CSV.read('data_files/update_menu.csv')
+
 #Instance of Menu Class: main menu
 main_menu = Menu.new("main", menu_options) 
 
@@ -35,6 +38,11 @@ tide = TideMenu.new("tide", tide_options)
 
 #Instance of AnchorageMenu, subclass of Menu Class
 anchorage = AnchorageMenu.new("anchorage", anchorage_options)
+
+#Instance of UpdateMenu, subclass of Menu Class
+update  = UpdateMenu.new("update", update_options)
+
+
 
 #While loop to keep program running until user selects exit
 exit = false
@@ -65,7 +73,9 @@ while exit == false
             anchorage.calculate_anchorage
             continue
         when menu_options[0][3].downcase
-            puts "update"
+            update.message
+            puts update.display_menu
+            continue
         when menu_options[0][4].downcase
             exit_message
             exit = true

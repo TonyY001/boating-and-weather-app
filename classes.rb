@@ -144,6 +144,16 @@ class AnchorageMenu < Menu
     end
 end
 
+class UpdateMenu < Menu
+     
+    def initialize(name,options)
+            super
+    end
+
+end
+
+
+
 
 
 
