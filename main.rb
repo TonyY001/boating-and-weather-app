@@ -7,6 +7,8 @@ require 'io/console'
 require_relative 'classes.rb'
 require_relative 'methods.rb'
 
+begin
+
 #Initialised variable to hold banner font
 font = TTY::Font.new(:standard) 
 #Initialised variable to hold banner color
@@ -83,4 +85,8 @@ while exit == false
             puts "Please enter a valid selection !".colorize(:yellow)
     end
 
+end
+
+rescue Interrupt
+    puts " You exited the application".colorize(:yellow)
 end

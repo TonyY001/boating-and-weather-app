@@ -26,18 +26,13 @@ def exit_message
 end
 
 def update_weather
-
   weather_data_update = CSV.open('data_files/weather_data.csv', 'w', headers: true)
-
-  weather_data_update <<  
-   
-
-  end
+end
 
 
 
 
 
-update_weather
+
 
 
