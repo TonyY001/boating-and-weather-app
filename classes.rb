@@ -2,14 +2,14 @@ class Menu
     attr_accessor :name, :options
     attr_reader :message
     
-    def initialize(name, options)
+    def initialize(name,options)
         @name = name
         @options = options
     end
     
     def display_menu
         @options.each do | option |
-        return option
+        puts option
         end
     end
 
@@ -54,8 +54,8 @@ class TideMenu < Menu
                 when "weekly tides"
                     week_tide
                 else
-                    puts "Please enter a valid selection !"
-            end
+                    puts "Please enter todays tide or weekly tide"
+                end
         end
 end
 
@@ -95,7 +95,7 @@ class AnchorageMenu < Menu
             data = location[2]
         when "south molle island"
             data = location[3]
-        when "hamilton_island"
+        when "hamilton island"
             data = location[4]
         end
 

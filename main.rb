@@ -7,6 +7,7 @@ require 'io/console'
 require_relative 'classes.rb'
 require_relative 'methods.rb'
 
+
 begin
 
 #Initialised variable to hold banner font
@@ -33,16 +34,16 @@ anchorage_options = CSV.read('data_files/anchorage_menu.csv')
 update_options = CSV.read('data_files/update_menu.csv')
 
 #Instance of Menu Class: main menu
-main_menu = Menu.new("main", menu_options) 
+main_menu = Menu.new("main", ["Find Weather Information","Find Tide Information","Find an Anchorage","Provide an Update","Quit Program"]) 
 
 #Instance of TideMenu, subclass of Menu Class
-tide = TideMenu.new("tide", tide_options)
+tide = TideMenu.new("tide", ["Todays Tide","Weekly Tides"])
 
 #Instance of AnchorageMenu, subclass of Menu Class
-anchorage = AnchorageMenu.new("anchorage", anchorage_options)
+anchorage = AnchorageMenu.new("anchorage", ["Hook Island","Whitsunday Island","Long Island","South Molle Island","Hamilton Island"])
 
 #Instance of UpdateMenu, subclass of Menu Class
-update  = UpdateMenu.new("update", update_options)
+update  = UpdateMenu.new("update", ["Update Daily Weather","Update Daily Tides"])
 
 
 
@@ -54,7 +55,7 @@ while exit == false
     main_menu.message
 
     #Prints main menu to screen
-    puts main_menu.display_menu
+    main_menu.display_menu
 
     #Saves user selection into variable: user selection
     user_selection = gets.chomp.downcase
@@ -66,17 +67,17 @@ while exit == false
             continue
         when menu_options[0][1].downcase
             tide.message
-            puts tide.display_menu
+            tide.display_menu
             tide.tide_user_input
             continue
         when menu_options[0][2].downcase
             anchorage.message
-            puts anchorage.display_menu
+            anchorage.display_menu
             anchorage.calculate_anchorage
             continue
         when menu_options[0][3].downcase
             update.message
-            puts update.display_menu
+            update.display_menu
             continue
         when menu_options[0][4].downcase
             exit_message
@@ -87,6 +88,10 @@ while exit == false
 
 end
 
-rescue Interrupt
+rescue Interrupt 
     puts " You exited the application".colorize(:yellow)
+rescue StandardError => e
+    puts "An unexpected error occured".colorize(:yellow)
+    p e.backtrace
 end
+["Find Weather Information","Find Tide Information","Find an Anchorage","Provide an Update","Quit Program"]
