@@ -9,7 +9,7 @@ class Menu
     
     def display_menu
         @options.each do | option |
-        puts option
+        return option
         end
     end
 
