@@ -99,25 +99,26 @@ class AnchorageMenu < Menu
           data = location[4]
         end
 
-        if wind_direction == 'south'
+        case wind_direction
+        when 'south'
           anchorage = data[:anchorage][0]
           longitude = data[:longitude][0]
           latitude = data[:latitude][0]
           depth = data[:depth][0]
 
-        elsif wind_direction == 'west'
+        when 'west'
           anchorage = data[:anchorage][1]
           longitude = data[:longitude][1]
           latitude = data[:latitude][1]
           depth = data[:depth][1]
 
-        elsif wind_direction == 'north'
+        when 'north'
           anchorage = data[:anchorage][2]
           longitude = data[:longitude][2]
           latitude = data[:latitude][2]
           depth = data[:depth][2]
 
-        elsif wind_direction == 'east'
+        when 'east'
           anchorage = data[:anchorage][3]
           longitude = data[:longitude][3]
           latitude = data[:latitude][3]
